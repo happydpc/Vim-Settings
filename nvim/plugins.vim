@@ -1,5 +1,5 @@
 " ----- Neovim Plugins -----
-" Last Updated on 2019. 09. 14.
+" Last Updated on 2019. 09. 18.
 
 " ----- Plugin Manager -----
 set nocompatible
@@ -49,8 +49,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'prabirshrestha/vim-lsp'
     Plug 'prettier/vim-prettier', {'do': 'yarn install', 'branch': 'release/1.x', 'for': ['css', 'html', 'javascript', 'json', 'markdown']}
     Plug 'runoshun/tscompletejob'
-    Plug 'ryanolsonx/vim-lsp-javascript'
-    Plug 'ryanolsonx/vim-lsp-python'
     Plug 'scrooloose/nerdtree'
     Plug 'thomasfaingnaert/vim-lsp-neosnippet'
     Plug 'thomasfaingnaert/vim-lsp-snippets'
@@ -182,7 +180,28 @@ if executable('gopls')
     autocmd BufWritePre *.go LspDocumentFormatSync
 endif
 if executable('pyls')
+    autocmd User lsp_setup call lsp#register_server({
+        \'name': 'pyls',
+        \'cmd': {server_info->['pyls']},
+        \'whitelist': ['python'],
+        \'workspace_config': {'pyls': {'plugins': {'mccabe': {'enabled': v:false}, {'pydocstyle': {'enabled': v:true}, 'yapf': {'enabled': v:false}}}}
+    \})
     autocmd BufWritePre *.py LspDocumentFormatSync
+endif
+if executable('typescript-language-server')
+    autocmd User lsp_setup call lsp#register_server({
+        \'name': 'javascript support using typescript-language-server',
+        \'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
+        \'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact'],
+    \})
+
+    autocmd User lsp_setup call lsp#register_server({
+        \'name': 'typescript-language-server',
+        \'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \'whitelist': ['typescript', 'typescript.tsx'],
+    \})
 endif
 
 " ----- scrooloose/nerdtree -----
