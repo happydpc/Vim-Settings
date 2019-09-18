@@ -24,6 +24,15 @@ checkEnable() {
     fi
 }
 
+# Dotfiles
+setDotfiles() {
+    checkEnable
+
+    curl -fLo "${HOME}/.clang-format" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/.clang-format"
+    curl -fLo "${HOME}/.mypy.ini" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/.mypy.ini"
+}
+
+# Neovim
 setNeovim() {
     checkEnable
 
@@ -48,6 +57,7 @@ setNeovim() {
     nvim +PlugInstall +qall
 }
 
+# Vim
 setVim() {
     checkEnable
 
@@ -82,9 +92,11 @@ main() {
             ;;
         --nvim)
             setNeovim
+            setDotfiles
             ;;
         --vim)
             setNeovim
+            setDotfiles
             ;;
         *)
             echo "Error: invalid option: $p"
