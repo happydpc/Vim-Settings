@@ -184,7 +184,7 @@ if executable('pyls')
         \'name': 'pyls',
         \'cmd': {server_info->['pyls']},
         \'whitelist': ['python'],
-        \'workspace_config': {'pyls': {'plugins': {'mccabe': {'enabled': v:false}, {'pydocstyle': {'enabled': v:true}, 'yapf': {'enabled': v:false}}}}
+        \'workspace_config': {'pyls': {'plugins': {'mccabe': {'enabled': v:false}, 'pydocstyle': {'enabled': v:true}, 'yapf': {'enabled': v:false}}}}
     \})
     autocmd BufWritePre *.py LspDocumentFormatSync
 endif
