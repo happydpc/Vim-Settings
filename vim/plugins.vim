@@ -1,5 +1,5 @@
 " ----- Vim Plugins -----
-" Last Updated on 2019. 09. 18.
+" Last Updated on 2019. 09. 23.
 
 " ----- Plugin Manager -----
 set nocompatible
@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'alvan/vim-closetag'
     Plug 'ap/vim-css-color'
-    Plug 'ayu-theme/ayu-vim'
+    Plug 'arcticicestudio/nord-vim'
     Plug 'chrisbra/csv.vim'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'elzr/vim-json'
@@ -64,9 +64,8 @@ let g:formatdef_clangformat='"clang-format -style=\"{BasedOnStyle: LLVM, IndentW
 " ----- Raimondi/delimitMate -----
 autocmd FileType html let delimitMate_autoclose=0
 
-" ----- ayu-theme/ayu-vim -----
-let ayucolor='mirage'
-colorscheme ayu
+" ----- arcticicestudio/nord-vim -----
+colorscheme nord
 
 " ----- ctrlpvim/ctrlp.vim -----
 let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
@@ -214,7 +213,7 @@ let g:airline#extensions#hunks#enabled=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tagbar#enabled=1
 let g:airline_powerline_fonts=1
-let g:airline_theme='ayu_mirage'
+let g:airline_theme='nord'
 
 " ----- added by hwyncho -----
 function! Format()
