@@ -1,5 +1,5 @@
 " ----- Neovim Plugins -----
-" Last Updated on 2019. 09. 23.
+" Last Updated on 2019. 09. 29.
 
 " ----- Plugin Manager -----
 set nocompatible
@@ -24,7 +24,6 @@ call plug#begin('~/.local/share/nvim/plugged')
     Plug 'junegunn/gv.vim'
     Plug 'kyouryuukunn/asyncomplete-neoinclude.vim'
     Plug 'lervag/vimtex'
-    Plug 'ludovicchabant/vim-gutentags'
     Plug 'majutsushi/tagbar'
     Plug 'mattn/emmet-vim'
     Plug 'nathanaelkane/vim-indent-guides'
@@ -70,6 +69,19 @@ colorscheme nord
 " ----- ctrlpvim/ctrlp.vim -----
 let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_switch_buffer='et'
+
+" ----- elzr/vim-json -----
+let g:vim_json_syntax_conceal=0
+
+" ----- majutsushi/tagbar -----
+let g:tagbar_type_markdown={
+    \'ctagstype' : 'markdown',
+    \'kinds' : [
+        \'h:Heading_L1',
+        \'i:Heading_L2',
+        \'k:Heading_L3'
+    \]
+\}
 
 " ----- nathanaelkane/vim-indent-guides -----
 let g:indent_guides_enable_on_vim_startup=1
