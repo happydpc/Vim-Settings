@@ -29,6 +29,7 @@ setDotfiles() {
     checkEnable
 
     curl -fLo "${HOME}/.clang-format" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/dotfiles/clang-format"
+    curl -fLo "${HOME}/.ctags" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/dotfiles/ctags"
     curl -fLo "${HOME}/.mypy.ini" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/dotfiles/mypy.ini"
     curl -fLo "${HOME}/.pylintrc" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/dotfiles/pylintrc"
 }
