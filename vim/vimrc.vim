@@ -1,45 +1,65 @@
-" ----- Vim Settings -----
-" Last Updated on 2019. 09. 14.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vim Settings
+" Last Updated on 2019. 10. 04.
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ----- UI -----
-set autochdir
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => UI
 set background=dark
-set mouse=a
-set splitbelow
-set splitright
 set termguicolors
 
-" ----- File -----
+set splitbelow
+set splitright
+
+set mouse=a
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => File
 set encoding=utf-8
 set fileencoding=utf-8
-set history=1000
+
 set nobackup
 set noswapfile
 set nowritebackup
-set undodir=$HOME/.cache/nvim/undo
-set undofile
 
-" ----- Editor -----
+set history=1000
+
+set undodir=$HOME/.cache/vim/undo
+set undofile
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Editor
+set list
+set listchars=extends:›,nbsp:·,precedes:‹,tab:»\ ,trail:·
+
+set hlsearch
+set number
+set ruler
+set showbreak=\ \ \ \ 
+set showmatch
+syntax on
+
 set autoindent
 set breakindent
 set cindent
-set completeopt=menu,menuone,preview,noselect,noinsert
-set expandtab
-set hlsearch
-set list
-set listchars=extends:›,nbsp:·,precedes:‹,tab:»\ ,trail:·
-set number
-set ruler
-set shiftwidth=4
-set showbreak=\ \ \ \ 
-set showmatch
 set smartindent
+
+set expandtab
+set shiftwidth=4
 set tabstop=4
 set wrap
-syntax on
 
-" ----- Plugins -----
+set completeopt=menu,menuone,preview,noselect,noinsert
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
 source $HOME/.vim/plugins.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ----- Keybindings -----
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Keybindings
 source $HOME/.vim/keybindings.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

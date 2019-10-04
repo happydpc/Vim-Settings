@@ -1,36 +1,46 @@
 " ----- Neovim Keybindings -----
-" Last Updated on 2019. 09. 14.
+" Last Updated on 2019. 10. 04.
 
-" ----- Default -----
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Default
 let mapleader=','
 nmap <leader>[ <C-w>h
 nmap <leader>] <C-w>l
 nmap <leader><CR> :let @/=''<CR>
 nmap <leader>q :q<CR>
 nmap <leader>w :w<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" ----- Shougo/neosnippet.vim -----
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+" --> majutsushi/tagbar
+nmap <leader>t :TagbarToggle<CR>
+
+" --> neoclide/coc.nvim
+inoremap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+nmap <leader>x <Plug>(coc-cursors-operator)
+nmap <silent> <C-c> <Plug>(coc-cursors-position)
+nmap <silent> <C-d> <Plug>(coc-cursors-word)
+xmap <silent> <C-d> <Plug>(coc-cursors-range)
+
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gy <Plug>(coc-type-definition)
+
+xmap <leader>f <Plug>(coc-format-selected)
+
+" --> scrooloose/nerdtree
+nmap <leader>n :NERDTreeToggle<CR>
+
+" --> Shougo/neosnippet.vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-
-" ---- airblade/vim-gitgutter -----
-nmap <leader>g :GitGutterToggle<CR>
-
-" ----- majutsushi/tagbar -----
-nmap <leader>t :TagbarToggle<CR>
-
-" ----- prabirshrestha/asyncomplete.vim -----
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
-imap <C-Space> <Plug>(asyncomplete_force_refresh)
-
-" ----- othree/html5.vim -----
-autocmd FileType html imap <C-n> <C-x><C-o>
-
-" ----- scrooloose/nerdtree -----
-nmap <leader>n :NERDTreeToggle<CR>
-
-" ----- added by hwyncho -----
-nmap <leader>f :Format<CR>
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
