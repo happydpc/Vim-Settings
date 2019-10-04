@@ -26,8 +26,6 @@ checkEnable() {
 
 # Dotfiles
 setDotfiles() {
-    checkEnable
-
     curl -fLo "${HOME}/.clang-format" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/dotfiles/clang-format"
     curl -fLo "${HOME}/.ctags" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/dotfiles/ctags"
     curl -fLo "${HOME}/.mypy.ini" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/dotfiles/mypy.ini"
@@ -36,8 +34,6 @@ setDotfiles() {
 
 # Neovim
 setNeovim() {
-    checkEnable
-
     _nvim=$(which nvim)
     if [ -z ${_nvim} ]; then
         echo "[31mError[0m: You need to have nvim installed and in your system path for this task to work"
@@ -51,6 +47,7 @@ setNeovim() {
     curl -fLo "${HOME}/.config/nvim/init.vim" --create-dirs "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/nvim/init.vim"
     curl -fLo "${HOME}/.config/nvim/plugins.vim" --create-dirs "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/nvim/plugins.vim"
     curl -fLo "${HOME}/.config/nvim/keybindings.vim" --create-dirs "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/nvim/keybindings.vim"
+    curl -fLo "${HOME}/.config/nvim/coc-settings.json" --create-dirs "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/nvim/coc-settings.json"
 
     chmod +x "${HOME}/.config/nvim/init.vim"
     chmod +x "${HOME}/.config/nvim/plugins.vim"
@@ -61,8 +58,6 @@ setNeovim() {
 
 # Vim
 setVim() {
-    checkEnable
-
     _vim=$(which vim)
     if [ -z ${_vim} ]; then
         echo "[31mError[0m: You need to have vim installed and in your system path for this task to work"
@@ -76,6 +71,7 @@ setVim() {
     curl -fLo "${HOME}/.vimrc" "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/vim/vimrc.vim"
     curl -fLo "${HOME}/.vim/plugins.vim" --create-dirs "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/vim/plugins.vim"
     curl -fLo "${HOME}/.vim/keybindings.vim" --create-dirs "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/vim/keybindings.vim"
+    curl -fLo "${HOME}/.vim/coc-settings.json" --create-dirs "https://raw.githubusercontent.com/hwyncho/Vim-Settings/master/vim/coc-settings.json"
 
     chmod +x "${HOME}/.vimrc"
     chmod +x "${HOME}/.vim/plugins.vim"
@@ -97,7 +93,7 @@ main() {
             setDotfiles
             ;;
         --vim)
-            setNeovim
+            setVim
             setDotfiles
             ;;
         *)
@@ -108,4 +104,5 @@ main() {
     done
 }
 
+checkEnable
 main $@
