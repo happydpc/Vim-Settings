@@ -1,15 +1,15 @@
 " ----- Vim Plugins -----
-" Last Updated on 2019. 10. 04.
+" Last Updated on 2019. 10. 05.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugin Manager
 set nocompatible
 call plug#begin('~/.vim/plugged')
     " --> UI
-    Plug 'arcticicestudio/nord-vim'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'majutsushi/tagbar'
     Plug 'scrooloose/nerdtree'
+    Plug 'tomasr/molokai'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'vim-airline/vim-airline'
 
@@ -48,9 +48,6 @@ call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => UI
-" --> arcticicestudio/nord-vim
-colorscheme nord
-
 " --> ctrlpvim/ctrlp.vim
 let g:ctrlp_custom_ignore='\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_switch_buffer='et'
@@ -69,6 +66,11 @@ let g:tagbar_type_markdown={
 autocmd StdinReadPre * let s:std_in=1
 " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" --> tomasr/molokai
+let g:molokai_original=1
+" let g:rehash256=1
+colorscheme molokai
+
 " --> vim-airline/vim-airline
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#coc#enabled = 1
@@ -76,7 +78,7 @@ let g:airline#extensions#hunks#enabled=1
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tagbar#enabled=1
 let g:airline_powerline_fonts=1
-let g:airline_theme='nord'
+let g:airline_theme='molokai'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
